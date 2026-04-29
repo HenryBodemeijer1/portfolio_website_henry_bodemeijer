@@ -1,8 +1,5 @@
-import FadeIn from "@/components/ui/FadeIn";
-
 export default function Hero() {
   return (
-    <FadeIn>
       <section id="home" className="py-24 md:py-32 scroll-mt-24">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
 
@@ -47,6 +44,5 @@ export default function Hero() {
 
         </div>
       </section>
-    </FadeIn>
   );
 }

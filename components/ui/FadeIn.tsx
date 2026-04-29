@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from "react";
 
 export default function FadeIn({
   children,
+  delay = 0,
 }: {
   children: React.ReactNode;
+  delay?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -15,6 +17,8 @@ export default function FadeIn({
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
+        } else {
+          setVisible(false);
         }
       },
       { threshold: 0.2 }
@@ -30,6 +34,7 @@ export default function FadeIn({
   return (
     <div
       ref={ref}
+      style={{ transitionDelay: `${delay}ms` }}
       className={`transition-all duration-700 ${
         visible
           ? "opacity-100 translate-y-0"
